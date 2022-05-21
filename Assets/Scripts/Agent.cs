@@ -92,13 +92,13 @@ public class Agent : MonoBehaviour
     }
 
     /**
-     * Called during each time step of a reinforcement learning episode
+     * Called during each time step of a reinforcement learning episode. Uses the Sarsa method to update action=values
      */
     public int NextAction(float reward, int[] state)
     {
         // Choose action according to policy
         int action = ChooseAction(state);
-        // Update action-vaue of previous state-action pair
+        // Update action-value of previous state-action pair
         int[] prev_state = state_history[state_history.Count-1];
         int prev_action = action_history[action_history.Count-1];
         string prev_key = prev_state[0] + "" + prev_state[1] + ":" + prev_action;
